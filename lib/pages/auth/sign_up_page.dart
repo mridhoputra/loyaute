@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loyaute/pages/auth/otp_page.dart';
+import 'package:loyaute/provider/user_provider.dart';
 import 'package:loyaute/utils/colors.dart';
 import 'package:loyaute/utils/data_common.dart';
+import 'package:provider/provider.dart';
 
 class SignUpPage extends StatefulWidget {
   static const routeName = '/sign-up';
@@ -30,6 +33,10 @@ class _SignUpPageState extends State<SignUpPage> {
   bool _showLabelPassword = false;
   bool _showLabelPhoneNumber = false;
   String _selectedCountryCode = '62';
+
+  _pushNamed(String routeName) {
+    context.pushNamed(routeName);
+  }
 
   @override
   void initState() {
@@ -361,42 +368,47 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                   const SizedBox(height: 60),
-                  InkWell(
-                    onTap: () {
-                      print(_name);
-                      print(_email);
-                      print(_phoneNumber);
-                      print(_password);
-                      if (_name != '' && _email != '' && _phoneNumber != '' && _password != '') {
-                        //TODO:
-                      } else {
-                        Fluttertoast.showToast(
-                          msg: 'Please fill the form first',
-                          toastLength: Toast.LENGTH_LONG,
-                        );
-                      }
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.all(16),
-                      margin: const EdgeInsets.symmetric(horizontal: 24),
-                      decoration: BoxDecoration(
-                        color:
-                            (_name != '' && _email != '' && _phoneNumber != '' && _password != '')
-                                ? ColorTheme.primary
-                                : ColorTheme.border,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Text(
-                        'Create Account',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
+                  Consumer<UserProvider>(builder: (context, userProvider, child) {
+                    return InkWell(
+                      onTap: () async {
+                        if (_name != '' && _email != '' && _phoneNumber != '' && _password != '') {
+                          String completePhoneNumber = '+$_selectedCountryCode $_phoneNumber';
+                          await userProvider.register(
+                            _name,
+                            _email,
+                            completePhoneNumber,
+                            _password,
+                          );
+                          _pushNamed(OTPPage.routeName);
+                        } else {
+                          Fluttertoast.showToast(
+                            msg: 'Please fill the form first',
+                            toastLength: Toast.LENGTH_LONG,
+                          );
+                        }
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        margin: const EdgeInsets.symmetric(horizontal: 24),
+                        decoration: BoxDecoration(
+                          color:
+                              (_name != '' && _email != '' && _phoneNumber != '' && _password != '')
+                                  ? ColorTheme.primary
+                                  : ColorTheme.border,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Text(
+                          'Create Account',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  }),
                   const SizedBox(height: 12),
                   RichText(
                     textAlign: TextAlign.center,

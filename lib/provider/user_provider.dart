@@ -50,9 +50,12 @@ class UserProvider extends ChangeNotifier {
 
   String _generateRandomNumber() {
     final random = Random();
-    num min = pow(10, 15 - 1);
-    num max = pow(10, 15) - 1;
-    num randomNumber = min + random.nextInt(max.toInt() - min.toInt());
-    return randomNumber.toString();
+    String result = '';
+
+    for (int i = 0; i < 15; i++) {
+      result += random.nextInt(10).toString();
+    }
+
+    return result;
   }
 }
