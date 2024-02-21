@@ -1,4 +1,4 @@
-import 'package:loyaute/model/country.dart';
+import 'package:loyaute/model/country_model.dart';
 
 final List<Country> countryList = [
   Country(

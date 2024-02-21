@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
-import 'package:loyaute/model/countries.dart';
-import 'package:loyaute/model/country.dart';
 import 'package:loyaute/utils/colors.dart';
+import 'package:loyaute/utils/data_common.dart';
 
 class SignUpPage extends StatefulWidget {
   static const routeName = '/sign-up';
