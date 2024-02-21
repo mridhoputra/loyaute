@@ -93,9 +93,9 @@ class _SignUpPageState extends State<SignUpPage> {
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white,
-          body: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
-            child: SingleChildScrollView(
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -108,13 +108,27 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    'Create an account',
-                    style: TextStyle(
-                      fontSize: 29,
-                      letterSpacing: -0.01,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 500),
+                    child: (_name != '' && _email != '' && _phoneNumber != '' && _password != '')
+                        ? Text(
+                            "Let's sign You up",
+                            key: UniqueKey(),
+                            style: const TextStyle(
+                              fontSize: 29,
+                              letterSpacing: -0.01,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        : Text(
+                            'Create an account',
+                            key: UniqueKey(),
+                            style: const TextStyle(
+                              fontSize: 29,
+                              letterSpacing: -0.01,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                   ),
                   const SizedBox(height: 18),
                   Text(
@@ -191,6 +205,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) => setState(() => _email = value),
+                    onSubmitted: (_) {
+                      _emailFocusNode.unfocus();
+                      FocusScope.of(context).requestFocus(_phoneNumberFocusNode);
+                    },
                     style: TextStyle(
                       fontSize: 14,
                       letterSpacing: -0.01,
@@ -259,6 +277,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             letterSpacing: -0.01,
                             fontWeight: FontWeight.w500,
                             color: ColorTheme.neutral500,
+                            fontFamily: 'PlusJakartaSans',
                           ),
                           icon: const Icon(Icons.keyboard_arrow_down_rounded),
                           padding: const EdgeInsets.only(left: 16),
@@ -271,7 +290,12 @@ class _SignUpPageState extends State<SignUpPage> {
                             (country) {
                               return DropdownMenuItem(
                                 value: country.phoneCode,
-                                child: Text('+${country.phoneCode}'),
+                                child: Text(
+                                  '+${country.phoneCode}',
+                                  style: const TextStyle(
+                                    fontFamily: 'PlusJakartaSans',
+                                  ),
+                                ),
                               );
                             },
                           ).toList(),
