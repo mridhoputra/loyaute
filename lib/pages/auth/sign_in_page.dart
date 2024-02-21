@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loyaute/pages/auth/otp_page.dart';
 import 'package:loyaute/pages/auth/sign_up_page.dart';
+import 'package:loyaute/provider/user_provider.dart';
 import 'package:loyaute/utils/colors.dart';
+import 'package:loyaute/utils/state_enum.dart';
+import 'package:provider/provider.dart';
 
 class SignInPage extends StatefulWidget {
   static const routeName = '/sign-in';
@@ -23,6 +27,10 @@ class _SignInPageState extends State<SignInPage> {
   bool _showLabelEmail = false;
   bool _isPasswordObscure = true;
   bool _showLabelPassword = false;
+
+  _pushNamed(String routeName) {
+    context.pushNamed(routeName);
+  }
 
   @override
   void initState() {
@@ -226,37 +234,45 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                   const SizedBox(height: 60),
-                  InkWell(
-                    onTap: () {
-                      if (_email != '' && _password != '') {
-                        //TODO:
-                      } else {
-                        Fluttertoast.showToast(
-                          msg: 'Email and Password must not be empty',
-                          toastLength: Toast.LENGTH_LONG,
-                        );
-                      }
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.all(16),
-                      margin: const EdgeInsets.symmetric(horizontal: 24),
-                      decoration: BoxDecoration(
-                        color: (_email != '' && _password != '')
-                            ? ColorTheme.primary
-                            : ColorTheme.border,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Text(
-                        'Sign In',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
+                  Consumer<UserProvider>(builder: (context, userProvider, child) {
+                    return InkWell(
+                      onTap: () async {
+                        if (_email != '' && _password != '') {
+                          await userProvider.login(_email, _password);
+                          if (userProvider.userState == RequestState.hasData) {
+                            _pushNamed(OTPPage.routeName);
+                          } else {
+                            Fluttertoast.showToast(
+                                msg: userProvider.userMessage, toastLength: Toast.LENGTH_LONG);
+                          }
+                        } else {
+                          Fluttertoast.showToast(
+                            msg: 'Email and Password must not be empty',
+                            toastLength: Toast.LENGTH_LONG,
+                          );
+                        }
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        margin: const EdgeInsets.symmetric(horizontal: 24),
+                        decoration: BoxDecoration(
+                          color: (_email != '' && _password != '')
+                              ? ColorTheme.primary
+                              : ColorTheme.border,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Text(
+                          'Sign In',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  }),
                   const SizedBox(height: 12),
                   RichText(
                     textAlign: TextAlign.center,

@@ -40,7 +40,7 @@ class UserProvider extends ChangeNotifier {
       name: name,
       email: email,
       phoneNumber: phoneNumber,
-      memberId: generateRandomNumber(),
+      memberId: _generateRandomNumber(),
       point: 0,
       pointExpiry: DateTime.now().add(const Duration(days: 365 * 5)),
     );
@@ -48,7 +48,7 @@ class UserProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  String generateRandomNumber() {
+  String _generateRandomNumber() {
     final random = Random();
     num min = pow(10, 15 - 1);
     num max = pow(10, 15) - 1;
