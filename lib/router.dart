@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loyaute/pages/auth/otp_page.dart';
+import 'package:loyaute/pages/auth/sign_in_page.dart';
+import 'package:loyaute/pages/auth/sign_up_page.dart';
 import 'package:loyaute/pages/on_boarding/on_boarding_page.dart';
 
 final router = GoRouter(
@@ -14,6 +17,39 @@ final router = GoRouter(
           state: state,
           context: context,
           child: const OnBoardingPage(),
+        );
+      },
+    ),
+    GoRoute(
+      name: SignInPage.routeName,
+      path: SignInPage.routeName,
+      pageBuilder: (context, state) {
+        return buildCustomTransitionPage(
+          state: state,
+          context: context,
+          child: const SignInPage(),
+        );
+      },
+    ),
+    GoRoute(
+      name: SignUpPage.routeName,
+      path: SignUpPage.routeName,
+      pageBuilder: (context, state) {
+        return buildCustomTransitionPage(
+          state: state,
+          context: context,
+          child: const SignUpPage(),
+        );
+      },
+    ),
+    GoRoute(
+      name: OTPPage.routeName,
+      path: OTPPage.routeName,
+      pageBuilder: (context, state) {
+        return buildCustomTransitionPage(
+          state: state,
+          context: context,
+          child: const OTPPage(),
         );
       },
     ),
