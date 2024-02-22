@@ -43,7 +43,7 @@ class HomeMerchants extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Popular Merchant',
+                'Popular Rewards',
                 style: TextStyle(
                   height: 1,
                   fontWeight: FontWeight.w700,

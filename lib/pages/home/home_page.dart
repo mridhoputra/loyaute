@@ -8,6 +8,7 @@ import 'package:loyaute/pages/home/widgets/home_menu.dart';
 import 'package:loyaute/pages/home/widgets/home_merchants.dart';
 import 'package:loyaute/pages/home/widgets/home_profile.dart';
 import 'package:loyaute/pages/home/widgets/home_promos.dart';
+import 'package:loyaute/pages/home/widgets/home_rewards.dart';
 import 'package:loyaute/provider/user_provider.dart';
 import 'package:loyaute/utils/colors.dart';
 import 'package:loyaute/utils/data_common.dart';
@@ -128,6 +129,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                         const SizedBox(height: 32),
                         const HomeMerchants(),
+                        const SizedBox(height: 32),
+                        const HomeRewards(),
                         const SizedBox(height: 32),
                       ],
                     );
