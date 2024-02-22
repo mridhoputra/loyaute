@@ -1,4 +1,203 @@
 import 'package:loyaute/model/country_model.dart';
+import 'package:loyaute/model/voucher_model.dart';
+
+final List<Voucher> voucherList = [
+  Voucher(
+    merchant: 'Starbucks',
+    title: 'STARBUCKS BUY ONE GET ONE',
+    banner: 'assets/images/il_promo_1.png',
+    startDate: DateTime(2024, 2, 29),
+    endDate: DateTime(2024, 3, 7),
+    description:
+        'Indulge in the ultimate coffee experience with our exclusive Starbucks Buy One Get One (BOGO) offer! Savor the rich flavors of your favorite handcrafted beverages while enjoying the delightful perk of getting a second one on the house. Embrace the joy of sharing and make every sip a moment to remember. Hurry, this limited-time offer is your perfect excuse to treat yourself and a friend to the comforting warmth and deliciousness of Starbucks. Terms and conditions apply; visit our stores or website for more details. Cheers to twice the enjoyment at Starbucks!',
+    benefits: [
+      Benefit(
+        title: 'Double the Enjoyment',
+        description:
+            'With the BOGO voucher, you get the opportunity to enjoy two Starbucks beverages for the price of one. This means you can savor your favorite coffee or try a new drink without worrying about the additional cost.',
+      ),
+      Benefit(
+        title: 'Perfect for Sharing Moments',
+        description:
+            "The BOGO voucher is ideal for sharing moments with friends, family, or colleagues. Whether it's catching up over coffee or surprising a loved one with their favorite Starbucks drink, the voucher enhances the social aspect of enjoying Starbucks together.",
+      ),
+      Benefit(
+        title: 'Exploration of Flavors',
+        description:
+            'Use the BOGO voucher to explore a variety of flavors and beverages. Try a different coffee blend, experiment with various syrups, or opt for a seasonal specialty drink. This promotion encourages customers to broaden their taste preferences',
+      ),
+    ],
+    howToGet: [
+      HowToGet(
+        title: 'Visit Starbucks',
+        description: 'Swing by any participating Starbucks store.',
+      ),
+      HowToGet(
+        title: 'Order Your Favorite',
+        description: 'Choose your go-to handcrafted beverage from the menu.',
+      ),
+      HowToGet(
+        title: 'Mention BOGO at Checkout',
+        description:
+            "Inform the barista you're here for the Buy One Get One deal when placing your order.",
+      ),
+      HowToGet(
+        title: 'Enjoy the Extra Treat',
+        description:
+            'Pay for one drink and savor a second one for free. Limited time only, so seize the moment!',
+      ),
+    ],
+    tnc: [
+      'This promotion is valid for a limited time only and is subject to change without notice.',
+      'To avail of the Buy One Get One (BOGO) offer, customers must purchase a qualifying beverage at the regular price to receive a second beverage of equal or lesser value at no additional cost.',
+      'The BOGO offer is applicable to select handcrafted beverages and sizes, as determined by Starbucks. Exclusions may apply.',
+      'This promotion is valid at participating Starbucks stores only. Please check with your local store to confirm participation.',
+    ],
+  ),
+  Voucher(
+    merchant: "Domino's Pizza",
+    title: 'Voucher title here',
+    banner: 'assets/images/il_promo_2.png',
+    startDate: DateTime(2024, 1, 1),
+    endDate: DateTime(2025, 1, 1),
+    description: 'Description here.',
+    benefits: [
+      Benefit(
+        title: 'Benefit 1',
+        description: 'Benefit description.',
+      ),
+      Benefit(
+        title: 'Benefit 2',
+        description: 'Benefit description.',
+      ),
+      Benefit(
+        title: 'Benefit 3',
+        description: 'Benefit description.',
+      ),
+      Benefit(
+        title: 'Benefit 4',
+        description: 'Benefit description.',
+      ),
+      Benefit(
+        title: 'Benefit 5',
+        description: 'Benefit description.',
+      ),
+    ],
+    howToGet: [
+      HowToGet(
+        title: 'How to Get title here.',
+        description: 'How to Get description here.',
+      ),
+      HowToGet(
+        title: 'How to Get title here.',
+        description: 'How to Get description here.',
+      ),
+      HowToGet(
+        title: 'How to Get title here.',
+        description: 'How to Get description here.',
+      ),
+    ],
+    tnc: [
+      'This promotion is valid for a limited time only and is subject to change without notice.',
+      'Another Terms & Conditions here',
+      'Another Terms & Conditions here',
+      'Another Terms & Conditions here',
+      'This promotion is valid at participating stores only. Please check with your local store to confirm participation.',
+    ],
+  ),
+  Voucher(
+    merchant: 'Starbucks',
+    title: 'STARBUCKS NEW YEAR SALEBRATION',
+    banner: 'assets/images/il_promo_3.png',
+    startDate: DateTime(2023, 12, 1),
+    endDate: DateTime(2024, 2, 1),
+    description: 'Starbucks New Year Salebration! Enjoy drink discount up to 60%',
+    benefits: [
+      Benefit(
+        title: 'Benefit 1',
+        description: 'Benefit description.',
+      ),
+      Benefit(
+        title: 'Benefit 2',
+        description: 'Benefit description.',
+      ),
+      Benefit(
+        title: 'Benefit 3',
+        description: 'Benefit description.',
+      ),
+    ],
+    howToGet: [
+      HowToGet(
+        title: 'Visit Starbucks',
+        description: 'Swing by any participating Starbucks store.',
+      ),
+      HowToGet(
+        title: 'Order Your Favorite',
+        description: 'Choose your go-to handcrafted beverage from the menu.',
+      ),
+      HowToGet(
+        title: 'Mention New Year Salebration at the Checkout',
+        description:
+            "Inform the barista you're here for the New Year Salebration deal when placing your order.",
+      ),
+      HowToGet(
+        title: 'Enjoy the Discounted Treat',
+        description: 'Enjoy the drink!',
+      ),
+    ],
+    tnc: [
+      'This promotion is valid for a limited time only and is subject to change without notice.',
+      'Another Terms & Conditions here',
+      'Another Terms & Conditions here',
+      'Another Terms & Conditions here',
+      'This promotion is valid at participating Starbucks stores only. Please check with your local store to confirm participation.',
+    ],
+  ),
+  Voucher(
+    merchant: "KFC",
+    title: 'Voucher title here',
+    banner: 'assets/images/il_promo_4.png',
+    startDate: DateTime(2024, 1, 1),
+    endDate: DateTime(2025, 1, 1),
+    description: 'Description here.',
+    benefits: [
+      Benefit(
+        title: 'Benefit 1',
+        description: 'Benefit description.',
+      ),
+      Benefit(
+        title: 'Benefit 2',
+        description: 'Benefit description.',
+      ),
+    ],
+    howToGet: [
+      HowToGet(
+        title: 'How to Get title here.',
+        description: 'How to Get description here.',
+      ),
+      HowToGet(
+        title: 'How to Get title here.',
+        description: 'How to Get description here.',
+      ),
+      HowToGet(
+        title: 'How to Get title here.',
+        description: 'How to Get description here.',
+      ),
+      HowToGet(
+        title: 'How to Get title here.',
+        description: 'How to Get description here.',
+      ),
+    ],
+    tnc: [
+      'This promotion is valid for a limited time only and is subject to change without notice.',
+      'Another Terms & Conditions here',
+      'Another Terms & Conditions here',
+      'Another Terms & Conditions here',
+      'Another Terms & Conditions here',
+      'This promotion is valid at participating stores only. Please check with your local store to confirm participation.',
+    ],
+  ),
+];
 
 final List<Country> countryList = [
   Country(

@@ -19,6 +19,7 @@ dependencies:
   provider: ^6.0.5
   barcode_widget: ^2.0.4
   intl: ^0.18.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
