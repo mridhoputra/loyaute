@@ -7,4 +7,6 @@ class ColorTheme {
 
   static Color neutral200 = const Color(0xFF9A9A9A);
   static Color neutral500 = const Color(0xFF232323);
+
+  static Color body = const Color(0xFF272A2D);
 }

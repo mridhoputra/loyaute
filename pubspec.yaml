@@ -17,6 +17,8 @@ dependencies:
   go_router: ^10.1.2
   fluttertoast: ^8.1.2
   provider: ^6.0.5
+  barcode_widget: ^2.0.4
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:
@@ -38,4 +40,7 @@ flutter:
   - family: PlusJakartaSansItalic
     fonts:
       - asset: assets/fonts/PlusJakartaSans/PlusJakartaSans-Italic-VariableFont_wght.ttf
+  - family: OCRAExtended
+    fonts:
+      - asset: assets/fonts/OCRAExtended/OCRAExtended.TTF
 

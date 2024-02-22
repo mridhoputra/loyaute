@@ -3,7 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:loyaute/pages/auth/otp_page.dart';
 import 'package:loyaute/pages/auth/sign_in_page.dart';
 import 'package:loyaute/pages/auth/sign_up_page.dart';
+import 'package:loyaute/pages/home/home_page.dart';
 import 'package:loyaute/pages/on_boarding/on_boarding_page.dart';
+import 'package:loyaute/widgets/bottom_nav.dart';
 
 final router = GoRouter(
   initialLocation: OnBoardingPage.routeName,
@@ -52,6 +54,24 @@ final router = GoRouter(
           child: const OTPPage(),
         );
       },
+    ),
+    ShellRoute(
+      builder: (context, state, child) {
+        return BottomNav(child: child);
+      },
+      routes: [
+        GoRoute(
+          name: HomePage.routeName,
+          path: HomePage.routeName,
+          pageBuilder: (context, state) {
+            return buildCustomTransitionPage(
+              state: state,
+              context: context,
+              child: const HomePage(),
+            );
+          },
+        ),
+      ],
     ),
   ],
 );

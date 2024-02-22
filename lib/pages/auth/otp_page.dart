@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
+import 'package:loyaute/pages/home/home_page.dart';
 import 'package:loyaute/provider/user_provider.dart';
 import 'package:loyaute/utils/colors.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +23,10 @@ class _OTPPageState extends State<OTPPage> {
 
   String otp = '';
   String phoneNumber = '';
+
+  _goNamed(String routeName) {
+    context.goNamed(routeName);
+  }
 
   void _configureFocusListeners() {
     for (int i = 0; i < 4; i++) {
@@ -186,7 +192,7 @@ class _OTPPageState extends State<OTPPage> {
               InkWell(
                 onTap: () async {
                   if (otp.length == 4) {
-                    Fluttertoast.showToast(msg: 'good', toastLength: Toast.LENGTH_LONG);
+                    _goNamed(HomePage.routeName);
                   } else {
                     Fluttertoast.showToast(
                       msg: 'Please fill the OTP Code',
