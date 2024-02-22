@@ -269,6 +269,51 @@ class VoucherDetailPage extends StatelessWidget {
                               );
                             }).toList(),
                           ),
+                          Text(
+                            'Terms and conditions',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: -0.01,
+                              color: ColorTheme.body,
+                            ),
+                          ),
+                          const SizedBox(height: 7),
+                          Column(
+                            children: voucher.tnc.asMap().entries.map((tnc) {
+                              return Column(
+                                children: [
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '${tnc.key + 1}. ',
+                                        style: const TextStyle(
+                                          height: 1,
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          letterSpacing: -0.01,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 10),
+                                      Expanded(
+                                        child: Text(
+                                          '${tnc.value}:',
+                                          style: TextStyle(
+                                            height: 1,
+                                            fontSize: 14,
+                                            letterSpacing: -0.01,
+                                            color: ColorTheme.body,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 23),
+                                ],
+                              );
+                            }).toList(),
+                          ),
                         ],
                       ),
                     )
