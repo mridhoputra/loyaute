@@ -3,7 +3,8 @@ import 'package:loyaute/model/voucher_model.dart';
 
 final List<Voucher> voucherList = [
   Voucher(
-    merchant: 'Starbucks',
+    merchantName: 'Starbucks',
+    merchantImage: 'assets/images/il_merchant_2.png',
     title: 'STARBUCKS BUY ONE GET ONE',
     banner: 'assets/images/il_promo_1.png',
     startDate: DateTime(2024, 2, 29),
@@ -55,7 +56,8 @@ final List<Voucher> voucherList = [
     ],
   ),
   Voucher(
-    merchant: "Domino's Pizza",
+    merchantName: "Domino's Pizza",
+    merchantImage: 'assets/images/il_merchant_4.png',
     title: 'Voucher title here',
     banner: 'assets/images/il_promo_2.png',
     startDate: DateTime(2024, 1, 1),
@@ -106,7 +108,8 @@ final List<Voucher> voucherList = [
     ],
   ),
   Voucher(
-    merchant: 'Starbucks',
+    merchantName: 'Starbucks',
+    merchantImage: 'assets/images/il_merchant_2.png',
     title: 'STARBUCKS NEW YEAR SALEBRATION',
     banner: 'assets/images/il_promo_3.png',
     startDate: DateTime(2023, 12, 1),
@@ -154,7 +157,8 @@ final List<Voucher> voucherList = [
     ],
   ),
   Voucher(
-    merchant: "KFC",
+    merchantName: "KFC",
+    merchantImage: 'assets/images/il_merchant_5.png',
     title: 'Voucher title here',
     banner: 'assets/images/il_promo_4.png',
     startDate: DateTime(2024, 1, 1),

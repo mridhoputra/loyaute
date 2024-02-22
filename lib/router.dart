@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loyaute/model/voucher_model.dart';
 import 'package:loyaute/pages/auth/otp_page.dart';
 import 'package:loyaute/pages/auth/sign_in_page.dart';
 import 'package:loyaute/pages/auth/sign_up_page.dart';
 import 'package:loyaute/pages/home/home_page.dart';
 import 'package:loyaute/pages/on_boarding/on_boarding_page.dart';
+import 'package:loyaute/pages/voucher_detail/voucher_detail_page.dart';
 import 'package:loyaute/widgets/bottom_nav.dart';
 
 final router = GoRouter(
@@ -68,6 +70,19 @@ final router = GoRouter(
               state: state,
               context: context,
               child: const HomePage(),
+            );
+          },
+        ),
+        GoRoute(
+          name: VoucherDetailPage.routeName,
+          path: VoucherDetailPage.routeName,
+          pageBuilder: (context, state) {
+            return buildCustomTransitionPage(
+              state: state,
+              context: context,
+              child: VoucherDetailPage(
+                voucher: state.extra as Voucher,
+              ),
             );
           },
         ),

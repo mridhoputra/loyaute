@@ -1,14 +1,14 @@
-import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:intl/intl.dart';
+import 'package:go_router/go_router.dart';
 import 'package:loyaute/pages/home/widgets/home_membership.dart';
 import 'package:loyaute/pages/home/widgets/home_menu.dart';
 import 'package:loyaute/pages/home/widgets/home_merchants.dart';
 import 'package:loyaute/pages/home/widgets/home_profile.dart';
 import 'package:loyaute/pages/home/widgets/home_promos.dart';
 import 'package:loyaute/pages/home/widgets/home_rewards.dart';
+import 'package:loyaute/pages/voucher_detail/voucher_detail_page.dart';
 import 'package:loyaute/provider/user_provider.dart';
 import 'package:loyaute/utils/colors.dart';
 import 'package:loyaute/utils/data_common.dart';
@@ -23,6 +23,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  _pushNamed(String routeName, [Object? extra]) {
+    context.pushNamed(routeName, extra: extra);
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -121,10 +125,7 @@ class _HomePageState extends State<HomePage> {
                         HomePromos(
                           voucherList: voucherList,
                           onVoucherPressed: (index) {
-                            Fluttertoast.showToast(
-                              msg: voucherList[index].title,
-                              toastLength: Toast.LENGTH_SHORT,
-                            );
+                            _pushNamed(VoucherDetailPage.routeName, voucherList[index]);
                           },
                         ),
                         const SizedBox(height: 32),

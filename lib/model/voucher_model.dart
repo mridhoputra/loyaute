@@ -1,5 +1,6 @@
 class Voucher {
-  String merchant;
+  String merchantName;
+  String merchantImage;
   String title;
   String banner;
   DateTime startDate;
@@ -10,7 +11,8 @@ class Voucher {
   List<String> tnc;
 
   Voucher({
-    required this.merchant,
+    required this.merchantName,
+    required this.merchantImage,
     required this.title,
     required this.banner,
     required this.startDate,
